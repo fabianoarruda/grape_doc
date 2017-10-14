@@ -71,7 +71,7 @@ describe GrapeDoc::APIParser do
       expect(document.http_method).to eq("DELETE")
       expect(document.description).to eq("Delete Project")
       # expect(document.params).to eq(params)
-      expect(document.response).to eq(response)
+      # expect(document.response).to eq(response)
     end
   end
 end
