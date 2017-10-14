@@ -9,16 +9,16 @@ module GrapeDoc
                   :empty
     def initialize(resource = nil, route = nil)
       return if route.nil?
-      if route.route_path == "/:version/(.:format)"
+      if route.path == "/:version/(.:format)"
         self.empty = true
         return
       end
-      self.path = route.route_path.gsub('(.:format)','')
+      self.path = route.path.gsub('(.:format)','')
       self.resource_name = resource
-      self.http_method = route.route_method
-      self.description = route.route_description
-      self.params = APIParameter.initialize_parameters route.route_params
-      self.response = nil_or_empty route.route_response
+      self.http_method = route.request_method
+      self.description = route.description
+      self.params = APIParameter.initialize_parameters route.params
+      #self.response = nil_or_empty route.route_response
     end
 
     private 
